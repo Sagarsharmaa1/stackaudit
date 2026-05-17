@@ -43,14 +43,14 @@ export default function BundleSizeChart({ dependencies }) {
   };
 
   return (
-    <div className="bg-card border border-border rounded-xl p-4 mb-8 print-break-inside-avoid flex flex-col items-center">
+    <div className="bg-card border border-border rounded-xl p-4 mb-8 print-break-inside-avoid flex flex-col items-center" style={{ width: '100%', minHeight: '300px' }}>
       <h3 className="text-lg font-bold mb-2 w-full text-left">Bundle Size Breakdown</h3>
       <p className="text-sm text-muted-foreground w-full text-left mb-4">
         Total Estimated Gzip: <span className="font-mono font-bold text-foreground">{totalKb} KB</span>
       </p>
       
-      <div className="w-full h-[350px]">
-        <ResponsiveContainer width="100%" height="100%">
+      <div style={{ width: '100%', height: 300 }}>
+        <ResponsiveContainer width="100%" height={300}>
           <PieChart>
             <Pie
               data={data}

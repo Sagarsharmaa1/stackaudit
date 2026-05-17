@@ -11,4 +11,13 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  server: {
+    proxy: {
+      '/api/bundlephobia': {
+        target: 'https://bundlephobia.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/bundlephobia/, '/api')
+      }
+    }
+  }
 })

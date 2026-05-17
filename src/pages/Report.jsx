@@ -48,7 +48,14 @@ export default function Report() {
       const enrichedDeps = await Promise.all(
         dependencies.map(async (dep) => {
           const npmData = await fetchNpmData(dep.name);
-          const bundleData = await fetchBundleSize(dep.name, dep.cleanVersion);
+          
+          const skipBundle = dep.isDev || 
+                            dep.name.startsWith("@types/") || 
+                            dep.name.startsWith("vite") || 
+                            dep.name.startsWith("shadcn") || 
+                            dep.name.startsWith("eslint");
+
+          const bundleData = skipBundle ? null : await fetchBundleSize(dep.name, dep.cleanVersion);
           
           return {
             ...dep,

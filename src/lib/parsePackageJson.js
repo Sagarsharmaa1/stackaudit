@@ -5,16 +5,20 @@ export function parsePackageJson(jsonString) {
       throw new Error("No dependencies found in package.json");
     }
     
-    const allDeps = {
-      ...parsed.dependencies,
-      ...parsed.devDependencies
-    };
-
-    const dependencies = Object.entries(allDeps).map(([name, version]) => ({
-      name,
-      versionRange: version,
-      cleanVersion: version.replace(/^[^\d]/, "")
-    }));
+    const dependencies = [
+      ...Object.entries(parsed.dependencies || {}).map(([name, version]) => ({
+        name,
+        versionRange: version,
+        cleanVersion: version.replace(/^[^\d]/, ""),
+        isDev: false
+      })),
+      ...Object.entries(parsed.devDependencies || {}).map(([name, version]) => ({
+        name,
+        versionRange: version,
+        cleanVersion: version.replace(/^[^\d]/, ""),
+        isDev: true
+      }))
+    ];
 
     return {
       name: parsed.name || "Unknown Project",

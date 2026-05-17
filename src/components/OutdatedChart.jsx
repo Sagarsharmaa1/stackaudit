@@ -35,25 +35,27 @@ export default function OutdatedChart({ dependencies }) {
   };
 
   return (
-    <div className="bg-card border border-border rounded-xl p-4 mb-8 print-break-inside-avoid h-[400px]">
+    <div className="bg-card border border-border rounded-xl p-4 mb-8 print-break-inside-avoid" style={{ width: '100%', minHeight: '300px' }}>
       <h3 className="text-lg font-bold mb-4">Top Outdated Packages</h3>
-      <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 50 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
-          <XAxis 
-            dataKey="name" 
-            angle={-45} 
-            textAnchor="end" 
-            height={70} 
-            stroke="var(--muted-foreground)"
-            tick={{ fontSize: 12 }}
-          />
-          <YAxis stroke="var(--muted-foreground)" tick={{ fontSize: 12 }} />
-          <Tooltip content={<CustomTooltip />} cursor={{ fill: 'var(--muted)' }} />
-          <Bar dataKey="current" fill="var(--muted-foreground)" radius={[4, 4, 0, 0]} />
-          <Bar dataKey="latest" fill="var(--warning)" radius={[4, 4, 0, 0]} />
-        </BarChart>
-      </ResponsiveContainer>
+      <div style={{ width: '100%', height: 300 }}>
+        <ResponsiveContainer width="100%" height={300}>
+          <BarChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 50 }}>
+            <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
+            <XAxis 
+              dataKey="name" 
+              angle={-45} 
+              textAnchor="end" 
+              height={70} 
+              stroke="var(--muted-foreground)"
+              tick={{ fontSize: 12 }}
+            />
+            <YAxis stroke="var(--muted-foreground)" tick={{ fontSize: 12 }} />
+            <Tooltip content={<CustomTooltip />} cursor={{ fill: 'var(--muted)' }} />
+            <Bar dataKey="current" fill="var(--muted-foreground)" radius={[4, 4, 0, 0]} />
+            <Bar dataKey="latest" fill="var(--warning)" radius={[4, 4, 0, 0]} />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
     </div>
   );
 }
