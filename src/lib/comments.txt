@@ -21,6 +21,9 @@
 
 ## parsePackageJson.js
 - **Logic**: Extracts `dependencies` and `devDependencies`.
+- **Validation**: 
+  - Validates JSON syntax and provides specific feedback for syntax errors.
+  - Ensures the file contains at least one dependency field (`dependencies` or `devDependencies`).
 - **Functionality**: Flags dev-dependencies with `isDev: true` so they can be filtered out of the bundle size audit later.
 
 ## storage.js
