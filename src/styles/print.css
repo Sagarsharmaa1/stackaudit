@@ -1,0 +1,20 @@
+@media print {
+  body {
+    background-color: white !important;
+    color: black !important;
+  }
+  
+  nav, .no-print, button {
+    display: none !important;
+  }
+  
+  .print-break-inside-avoid {
+    break-inside: avoid;
+  }
+
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    border-color: #ddd !important;
+  }
+}
