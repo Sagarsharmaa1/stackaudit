@@ -70,7 +70,7 @@ export default function HealthScore({ score }) {
             fill="transparent"
             strokeDasharray={circumference}
             strokeLinecap="round"
-            className="transition-colors duration-500"
+            className={`transition-colors duration-500 ${score > 75 ? "health-ring-glow" : ""}`}
           />
         </svg>
         <div className="absolute flex flex-col items-center justify-center">

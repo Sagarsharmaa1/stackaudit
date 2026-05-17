@@ -91,14 +91,13 @@ export default function Report() {
     const hash = encodeReport(report);
     const url = `${window.location.origin}/report#${hash}`;
     navigator.clipboard.writeText(url);
-    toast("Link copied to clipboard!");
+    toast("Link copied!");
   };
 
   const handleCopyBadge = () => {
-    const color = report.score > 75 ? "brightgreen" : report.score > 50 ? "yellow" : "red";
-    const badge = `[![StackAudit](https://img.shields.io/badge/StackAudit_Score-${report.score}-${color})](https://stackaudit.vercel.app)`;
+    const badge = `![StackAudit Score](https://img.shields.io/badge/StackAudit-${report.score}%2F100-00FF94?style=flat&logo=npm)`;
     navigator.clipboard.writeText(badge);
-    toast("Markdown badge copied!");
+    toast("Badge copied! Paste in your README");
   };
 
   if (loading) {
@@ -111,21 +110,21 @@ export default function Report() {
     <div ref={container} className="w-full flex flex-col py-8">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
         <div className="report-header">
-          <h1 className="text-3xl font-bold">{report.name} Audit</h1>
-          <p className="text-muted-foreground text-sm mt-1">
+          <h1 className="text-3xl font-bold text-[#E8E8E8]">{report.name} Audit</h1>
+          <p className="text-[#666666] text-sm mt-1">
             Generated on {new Date().toLocaleDateString()}
           </p>
         </div>
         <div className="action-buttons flex gap-2 no-print">
-          <Button variant="outline" size="sm" onClick={handleCopyBadge}>
-            <BadgeIcon className="w-4 h-4 mr-2" /> Badge
-          </Button>
-          <Button variant="outline" size="sm" onClick={handleCopyLink}>
-            <LinkIcon className="w-4 h-4 mr-2" /> Share
-          </Button>
-          <Button size="sm" onClick={handlePrint}>
-            <Download className="w-4 h-4 mr-2" /> PDF
-          </Button>
+          <button className="custom-share-btn flex items-center gap-2" onClick={handleCopyBadge}>
+            <BadgeIcon className="w-4 h-4" /> Badge
+          </button>
+          <button className="custom-share-btn flex items-center gap-2" onClick={handleCopyLink}>
+            <LinkIcon className="w-4 h-4" /> Share
+          </button>
+          <button className="custom-pdf-btn flex items-center gap-2" onClick={handlePrint}>
+            <Download className="w-4 h-4" /> PDF
+          </button>
         </div>
       </div>
 
