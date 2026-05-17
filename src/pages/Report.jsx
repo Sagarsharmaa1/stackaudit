@@ -95,7 +95,7 @@ export default function Report() {
   };
 
   const handleCopyBadge = () => {
-    const badge = `![StackAudit Score](https://img.shields.io/badge/StackAudit-${report.score}%2F100-00FF94?style=flat&logo=npm)`;
+    const badge = `![StackAudit Score](https://img.shields.io/badge/StackAudit-${report.score}%2F100-4ADE80?style=flat&logo=npm)`;
     navigator.clipboard.writeText(badge);
     toast("Badge copied! Paste in your README");
   };
@@ -110,8 +110,8 @@ export default function Report() {
     <div ref={container} className="w-full flex flex-col py-8">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
         <div className="report-header">
-          <h1 className="text-3xl font-bold text-[#E8E8E8]">{report.name} Audit</h1>
-          <p className="text-[#666666] text-sm mt-1">
+          <h1 className="text-3xl font-bold text-[#FAFAFA]">{report.name} Audit</h1>
+          <p className="text-[#525252] text-sm mt-1">
             Generated on {new Date().toLocaleDateString()}
           </p>
         </div>

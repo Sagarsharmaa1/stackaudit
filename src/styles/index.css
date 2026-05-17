@@ -5,26 +5,26 @@
   --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
   
-  --color-background: #0D0D0D;
-  --color-foreground: #E8E8E8;
-  --color-card: #141414;
-  --color-card-foreground: #E8E8E8;
-  --color-popover: #141414;
-  --color-popover-foreground: #E8E8E8;
-  --color-primary: #E8E8E8;
-  --color-primary-foreground: #0D0D0D;
-  --color-secondary: #222222;
-  --color-secondary-foreground: #E8E8E8;
-  --color-muted: #222222;
-  --color-muted-foreground: #666666;
-  --color-accent: #00FF94;
-  --color-accent-foreground: #0D0D0D;
-  --color-destructive: #FF4444;
-  --color-destructive-foreground: #E8E8E8;
-  --color-warning: #FFB800;
-  --color-border: #222222;
-  --color-input: #222222;
-  --color-ring: #222222;
+  --color-background: #080808;
+  --color-foreground: #FAFAFA;
+  --color-card: #0F0F0F;
+  --color-card-foreground: #FAFAFA;
+  --color-popover: #0F0F0F;
+  --color-popover-foreground: #FAFAFA;
+  --color-primary: #FAFAFA;
+  --color-primary-foreground: #080808;
+  --color-secondary: #1E1E1E;
+  --color-secondary-foreground: #FAFAFA;
+  --color-muted: #1E1E1E;
+  --color-muted-foreground: #525252;
+  --color-accent: #FF6B35;
+  --color-accent-foreground: #080808;
+  --color-destructive: #F87171;
+  --color-destructive-foreground: #FAFAFA;
+  --color-warning: #FBBF24;
+  --color-border: #1E1E1E;
+  --color-input: #1E1E1E;
+  --color-ring: #1E1E1E;
   
   --radius-lg: 4px;
   --radius-md: 4px;
@@ -33,25 +33,25 @@
 
 @layer base {
   :root {
-    --background: #0D0D0D;
-    --foreground: #E8E8E8;
-    --card: #141414;
-    --card-foreground: #E8E8E8;
-    --popover: #141414;
-    --popover-foreground: #E8E8E8;
-    --primary: #E8E8E8;
-    --primary-foreground: #0D0D0D;
-    --secondary: #222222;
-    --secondary-foreground: #E8E8E8;
-    --muted: #222222;
-    --muted-foreground: #666666;
-    --accent: #00FF94;
-    --accent-foreground: #0D0D0D;
-    --destructive: #FF4444;
-    --destructive-foreground: #E8E8E8;
-    --border: #222222;
-    --input: #222222;
-    --ring: #222222;
+    --background: #080808;
+    --foreground: #FAFAFA;
+    --card: #0F0F0F;
+    --card-foreground: #FAFAFA;
+    --popover: #0F0F0F;
+    --popover-foreground: #FAFAFA;
+    --primary: #FAFAFA;
+    --primary-foreground: #080808;
+    --secondary: #1E1E1E;
+    --secondary-foreground: #FAFAFA;
+    --muted: #1E1E1E;
+    --muted-foreground: #525252;
+    --accent: #FF6B35;
+    --accent-foreground: #080808;
+    --destructive: #F87171;
+    --destructive-foreground: #FAFAFA;
+    --border: #1E1E1E;
+    --input: #1E1E1E;
+    --ring: #1E1E1E;
     --radius: 4px;
   }
 }
@@ -62,7 +62,7 @@
   }
   html, body, #root {
     @apply bg-background text-foreground h-full;
-    background-color: #0D0D0D;
+    background-color: #080808;
   }
   body {
     font-feature-settings: "rlig" 1, "calt" 1;
@@ -70,22 +70,22 @@
 }
 
 .custom-share-btn {
-  border: 1px solid #222222;
-  background-color: #141414;
-  color: #E8E8E8;
+  border: 1px solid #1E1E1E;
+  background-color: #0F0F0F;
+  color: #FAFAFA;
   border-radius: 4px;
   padding: 8px 16px;
   transition: all 0.2s;
 }
 
 .custom-share-btn:hover {
-  border-color: #00FF94;
-  color: #00FF94;
+  border-color: #FF6B35;
+  color: #FF6B35;
 }
 
 .custom-pdf-btn {
-  background-color: #00FF94;
-  color: #0D0D0D;
+  background-color: #FF6B35;
+  color: #080808;
   border: none;
   border-radius: 4px;
   padding: 8px 16px;
@@ -98,7 +98,7 @@
 }
 
 .health-ring-glow {
-  filter: drop-shadow(0 0 8px #00FF94);
+  filter: drop-shadow(0 0 8px #4ADE80);
 }
 
 /* Scrollbar Styling */
@@ -107,14 +107,14 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #0D0D0D;
+  background: #080808;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #222222;
+  background: #1E1E1E;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #333333;
+  background: #2E2E2E;
 }

@@ -34,22 +34,22 @@ export default function OverviewCards({ stats }) {
   }, { scope: container });
 
   const cards = [
-    { title: "Total Dependencies", value: stats.total, icon: Package, color: "text-primary" },
-    { title: "Outdated", value: stats.outdated, icon: ArrowUpCircle, color: "text-warning" },
-    { title: "Vulnerable / Major", value: stats.vulnerable, icon: AlertTriangle, color: "text-destructive" },
-    { title: "Up to Date", value: stats.upToDate, icon: ShieldCheck, color: "text-accent" },
+    { title: "Total Dependencies", value: stats.total, icon: Package, color: "text-[#FAFAFA]" },
+    { title: "Outdated", value: stats.outdated, icon: ArrowUpCircle, color: "text-[#FBBF24]" },
+    { title: "Vulnerable / Major", value: stats.vulnerable, icon: AlertTriangle, color: "text-[#F87171]" },
+    { title: "Up to Date", value: stats.upToDate, icon: ShieldCheck, color: "text-[#4ADE80]" },
   ];
 
   return (
     <div ref={container} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
       {cards.map((c, i) => (
-        <Card key={i} className="stat-card bg-card border-border">
+        <Card key={i} className="stat-card bg-[#0F0F0F] border-[#1E1E1E] border">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">{c.title}</CardTitle>
+            <CardTitle className="text-sm font-medium text-[#525252]">{c.title}</CardTitle>
             <c.icon className={`w-4 h-4 ${c.color}`} />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold font-mono">
+            <div className="text-2xl font-bold font-mono text-[#FAFAFA]">
               <span className="stat-number" data-target={c.value}>0</span>
             </div>
           </CardContent>

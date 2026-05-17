@@ -1,13 +1,27 @@
-# StackAudit Complex Logic Documentation
+# StackAudit - Lib Documentation
 
-## Score Calculation
-- Starts at 100
-- Deduct 5 for each major update
-- Deduct 2 for each minor update
-- Deduct 0.5 for each patch
-- Deduct 5 for bundle size > 500kb gzip
-- Deduct 10 if total dependencies > 50
-- Deduct 15 if total dependencies > 100
+## calculateScore.js
+- **Logic**: The algorithm for the health score.
+- **Criteria**:
+  - Deducs points for Major (-5), Minor (-2), and Patch (-0.5) updates.
+  - Penalizes bundle bloat (>500kb gzip).
+  - Penalizes high dependency counts (>50 and >100).
+- **Decision**: Centralizing this logic makes the scoring reproducible and easy to tweak in one place.
 
-## Report Encoding
-The report data is stringified, URI encoded (to handle special characters), and then Base64 encoded to be passed in the URL hash.
+## encodeReport.js
+- **Logic**: Serializes the report object into a URL-safe string.
+- **Decision**: Uses `btoa(encodeURIComponent(JSON.stringify(data)))`. This allows full reports to be shared as a single link without a backend database.
+
+## fetchBundleSize.js
+- **Logic**: Communicates with the BundlePhobia API.
+- **CORS**: Uses a Vite proxy `/api/bundlephobia` to avoid browser CORS blocks during development.
+
+## fetchNpmData.js
+- **Logic**: Hits `registry.npmjs.org` to find the latest version and description of a package.
+
+## parsePackageJson.js
+- **Logic**: Extracts `dependencies` and `devDependencies`.
+- **Functionality**: Flags dev-dependencies with `isDev: true` so they can be filtered out of the bundle size audit later.
+
+## storage.js
+- **Logic**: Thin wrapper around `localStorage` to manage the "Recent Audits" history.
