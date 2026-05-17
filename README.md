@@ -2,6 +2,7 @@
 
 A production-ready React web app where developers drop their `package.json` and instantly get a beautiful visual audit report of their dependencies.
 
+![StackAudit Score](https://img.shields.io/badge/StackAudit-92%2F100-4ADE80?style=flat&logo=npm)
 ## Features
 - **Client-Side Processing**: No backend required. All npm data is fetched directly from public APIs.
 - **Visual Audits**: Generates a dependency health score based on outdated packages, vulnerabilities, and bundle sizes.
