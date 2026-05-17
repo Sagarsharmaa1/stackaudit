@@ -110,8 +110,8 @@ export default function Report() {
     <div ref={container} className="w-full flex flex-col py-8">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
         <div className="report-header">
-          <h1 className="text-3xl font-bold text-[#FAFAFA]">{report.name} Audit</h1>
-          <p className="text-[#525252] text-sm mt-1">
+          <h1 className="text-3xl font-bold text-[var(--text-primary)]">{report.name} Audit</h1>
+          <p className="text-[var(--text-muted)] text-sm mt-1">
             Generated on {new Date().toLocaleDateString()}
           </p>
         </div>

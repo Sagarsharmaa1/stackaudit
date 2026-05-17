@@ -24,21 +24,21 @@ export default function Recommendations({ recommendations }) {
   if (!recommendations || recommendations.length === 0) return null;
 
   const getIcon = (text) => {
-    if (text.includes("Update") && text.includes("Major")) return <AlertCircle className="w-5 h-5 text-[#F87171]" />;
-    if (text.includes("replacing")) return <RefreshCw className="w-5 h-5 text-[#FBBF24]" />;
-    if (text.includes("Update")) return <Wrench className="w-5 h-5 text-[#FF6B35]" />;
-    return <Lightbulb className="w-5 h-5 text-[#FF6B35]" />;
+    if (text.includes("Update") && text.includes("Major")) return <AlertCircle className="w-5 h-5 text-[var(--danger)]" />;
+    if (text.includes("replacing")) return <RefreshCw className="w-5 h-5 text-[var(--warning)]" />;
+    if (text.includes("Update")) return <Wrench className="w-5 h-5 text-[var(--accent)]" />;
+    return <Lightbulb className="w-5 h-5 text-[var(--accent)]" />;
   };
 
   return (
     <div ref={container} className="mb-8 print-break-inside-avoid">
-      <h3 className="text-lg font-bold mb-4 text-[#FAFAFA]">Actionable Recommendations</h3>
+      <h3 className="text-lg font-bold mb-4 text-[var(--text-primary)]">Actionable Recommendations</h3>
       <div className="grid gap-3">
         {recommendations.map((rec, i) => (
-          <Card key={i} className="rec-card bg-[#0F0F0F] border-[#1E1E1E] border hover:border-[#FF6B35]/50 transition-colors">
+          <Card key={i} className="rec-card bg-[var(--bg-surface)] border-[var(--border)] border hover:border-[var(--accent)] transition-colors">
             <CardContent className="p-4 flex items-center gap-4">
               {getIcon(rec)}
-              <span className="text-sm font-medium text-[#FAFAFA]">{rec}</span>
+              <span className="text-sm font-medium text-[var(--text-primary)]">{rec}</span>
             </CardContent>
           </Card>
         ))}

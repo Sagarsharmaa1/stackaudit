@@ -61,19 +61,19 @@ export default function DropZone({ onParsed }) {
         <div className="flex flex-col gap-4">
           <Textarea 
             placeholder="Paste your package.json content here..." 
-            className="h-64 font-mono text-sm bg-[#0F0F0F] border-[#1E1E1E] focus:border-[#FF6B35] text-[#FAFAFA]"
+            className="h-64 font-mono text-sm bg-[var(--bg-surface)] border-[var(--border)] focus:border-[var(--accent)] text-[var(--text-primary)]"
             value={jsonText}
             onChange={(e) => setJsonText(e.target.value)}
           />
           <div className="flex justify-between items-center">
-            <Button variant="outline" className="border-[#1E1E1E] text-[#FAFAFA] hover:bg-[#1E1E1E]" onClick={() => setTextMode(false)}>Cancel</Button>
-            <Button className="bg-[#FF6B35] text-[#080808] hover:bg-[#FF6B35]/90" onClick={() => handleProcess(jsonText)}>Audit Dependencies</Button>
+            <Button variant="outline" className="border-[var(--border)] text-[var(--text-primary)] hover:bg-[var(--bg-elevated)]" onClick={() => setTextMode(false)}>Cancel</Button>
+            <Button className="bg-[var(--accent)] text-[var(--bg)] hover:bg-[var(--accent-dim)]" onClick={() => handleProcess(jsonText)}>Audit Dependencies</Button>
           </div>
         </div>
       ) : (
         <div
           className={`relative flex flex-col items-center justify-center p-12 border-2 border-dashed rounded-lg transition-colors cursor-pointer ${
-            dragActive ? "border-[#FF6B35] bg-[#FF6B35]/10" : "border-[#1E1E1E] bg-[#0F0F0F] hover:border-[#FF6B35]/50 hover:bg-[#0F0F0F]/80"
+            dragActive ? "border-[var(--accent)] bg-[var(--accent)]/5" : "border-[var(--border-hover)] bg-[var(--bg-surface)] hover:border-[var(--accent)] hover:bg-[var(--bg-surface)]/80"
           }`}
           onDragOver={onDragOver}
           onDragLeave={onDragLeave}
@@ -87,10 +87,10 @@ export default function DropZone({ onParsed }) {
             className="hidden"
             onChange={onFileChange}
           />
-          <UploadCloud className={`w-16 h-16 mb-4 ${dragActive ? "text-[#FF6B35]" : "text-[#525252]"}`} />
-          <h3 className="text-xl font-bold mb-2 text-[#FAFAFA]">Drop package.json here</h3>
-          <p className="text-sm text-[#525252] mb-6">Or click to select a file</p>
-          <Button variant="secondary" className="bg-[#1E1E1E] text-[#FAFAFA] hover:bg-[#2E2E2E]" onClick={(e) => { e.stopPropagation(); setTextMode(true); }}>
+          <UploadCloud className={`w-16 h-16 mb-4 ${dragActive ? "text-[var(--accent)]" : "text-[var(--text-muted)]"}`} />
+          <h3 className="text-xl font-bold mb-2 text-[var(--text-primary)]">Drop package.json here</h3>
+          <p className="text-sm text-[var(--text-muted)] mb-6">Or click to select a file</p>
+          <Button variant="secondary" className="bg-[var(--bg-elevated)] text-[var(--text-primary)] hover:bg-[var(--border-hover)]" onClick={(e) => { e.stopPropagation(); setTextMode(true); }}>
             <FileJson className="w-4 h-4 mr-2" />
             Paste raw JSON
           </Button>

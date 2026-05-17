@@ -20,17 +20,17 @@ export default function BundleSizeChart({ dependencies }) {
   const totalGzip = sorted.reduce((acc, curr) => acc + curr.bundle.gzip, 0);
   const totalKb = (totalGzip / 1024).toFixed(1);
 
-  const colors = ["var(--destructive)", "#ff6b6b", "#ff8787", "#ff9f9f", "#ffb8b8", "var(--muted-foreground)"];
+  const colors = ["var(--danger)", "var(--warning)", "var(--accent)", "var(--healthy)", "var(--text-muted)", "var(--border)"];
 
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       const data = payload[0].payload;
       return (
-        <div className="bg-card border border-border p-3 rounded shadow-md flex flex-col gap-2">
-          <p className="font-bold">{data.name}</p>
-          <p className="text-sm font-mono">{(data.value / 1024).toFixed(1)} KB</p>
+        <div className="bg-[var(--bg-surface)] border border-[var(--border)] p-3 rounded shadow-md flex flex-col gap-2">
+          <p className="font-bold text-[var(--text-primary)]">{data.name}</p>
+          <p className="text-sm font-mono text-[var(--text-muted)]">{(data.value / 1024).toFixed(1)} KB</p>
           {data.name !== "Others" && (
-            <Button variant="outline" size="sm" className="mt-2 text-xs h-7" asChild>
+            <Button variant="outline" size="sm" className="mt-2 text-xs h-7 border-[var(--border)]" asChild>
               <a href={`https://bundlephobia.com/package/${data.name}@${data.version}`} target="_blank" rel="noreferrer">
                 Find Alternative <ExternalLink className="w-3 h-3 ml-2" />
               </a>
@@ -43,10 +43,10 @@ export default function BundleSizeChart({ dependencies }) {
   };
 
   return (
-    <div className="bg-card border border-border rounded-xl p-4 mb-8 print-break-inside-avoid flex flex-col items-center" style={{ width: '100%', minHeight: '300px' }}>
-      <h3 className="text-lg font-bold mb-2 w-full text-left">Bundle Size Breakdown</h3>
-      <p className="text-sm text-muted-foreground w-full text-left mb-4">
-        Total Estimated Gzip: <span className="font-mono font-bold text-foreground">{totalKb} KB</span>
+    <div className="bg-[var(--bg-surface)] border border-[var(--border)] rounded-xl p-4 mb-8 print-break-inside-avoid flex flex-col items-center" style={{ width: '100%', minHeight: '300px' }}>
+      <h3 className="text-lg font-bold mb-2 w-full text-left text-[var(--text-primary)]">Bundle Size Breakdown</h3>
+      <p className="text-sm text-[var(--text-muted)] w-full text-left mb-4">
+        Total Estimated Gzip: <span className="font-mono font-bold text-[var(--text-primary)]">{totalKb} KB</span>
       </p>
       
       <div style={{ width: '100%', height: 300 }}>
@@ -60,6 +60,7 @@ export default function BundleSizeChart({ dependencies }) {
               outerRadius={120}
               paddingAngle={2}
               dataKey="value"
+              stroke="none"
             >
               {data.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
