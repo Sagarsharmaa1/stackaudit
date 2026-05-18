@@ -17,6 +17,7 @@ A production-ready React web app where developers drop their `package.json` and 
 - GSAP for Animations
 - Recharts
 - Vercel for deployment
+  
 
 ## Running Locally
 
